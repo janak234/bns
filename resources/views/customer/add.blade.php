@@ -201,9 +201,14 @@
               type="number"
               class="form-control form-control-user @error('rate_list') is-invalid @enderror"
               id="rate"
+              min="0"
+              max="100"
               placeholder="Rate"
               name="rate"
             />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">%</span>
+            </div>
           </div>
 
           <div class="col-sm-3 mb-3 mt-3 mb-sm-0">

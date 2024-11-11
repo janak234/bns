@@ -161,7 +161,36 @@
                             value="{{ old('fraud_checked') }}" @if($transaction->is_cheked =='1' )checked @endif>
                             <label for="fraud_checked">Fraud alert pop-up when clicking on client lets talk, maybe they will come back with a new check</label>
                     </div>
-           
+                    <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+                        <span style="color:red;">*</span>Bank Name</label>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-user @error('bank_name') is-invalid @enderror" 
+                            id="bank_name"
+                            placeholder="Bank Name" 
+                            name="bank_name" 
+                            value="{{ old('bank_name') ? old('bank_name') : $transaction->bank_name }}">
+                    </div>
+                    <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+                        <span style="color:red;">*</span>Routing </label>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-user @error('routing') is-invalid @enderror" 
+                            id="routing"
+                            placeholder="Routing" 
+                            name="routing" 
+                            value="{{ old('routing') ? old('routing') : $transaction->routing }}">
+                    </div>
+                    <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+                        <span style="color:red;">*</span>Account Number</label>
+                        <input 
+                            type="text" 
+                            class="form-control form-control-user @error('account_number') is-invalid @enderror" 
+                            id="account_number"
+                            placeholder="Account Number" 
+                            name="account_number" 
+                            value="{{ old('account_number') ? old('account_number') : $transaction->account_number }}">
+                    </div>
                 </div>
             </div>
 

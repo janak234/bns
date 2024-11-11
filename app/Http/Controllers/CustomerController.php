@@ -108,7 +108,7 @@ class CustomerController extends Controller
             // 'memo' => 'required',
             // 'image' => 'required',
             'name_list' => 'required',
-            'rate_list' => 'required',
+            'rate_list' => 'required|min:0|max:100',
             'phone_list' => 'required',
             // 'licences' => 'required',
             // 'birth_certificate' => 'required',

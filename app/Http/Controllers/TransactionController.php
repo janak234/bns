@@ -174,7 +174,10 @@ class TransactionController extends Controller
             'company' =>  'required',
             'amount' =>  'required',
             'description' =>  'required',
-            'status'=>  'required'
+            'status'=>  'required',
+            'bank_name'=>  'required',
+            'routing'=>  'required',
+            'account_number'=>  'required',
         ]);
 
 
@@ -197,6 +200,9 @@ class TransactionController extends Controller
                 'description' =>  $request->description,
                 'is_cheked'=>  $checked,
                 'status'=>  $request->status,
+                'bank_name'=>  $request->bank_name,
+                'routing'=>  $request->routing,
+                'account_number'=>  $request->account_number,
       
             ]);
            
@@ -270,7 +276,10 @@ class TransactionController extends Controller
             'company' =>  'required',
             'amount' =>  'required',
             'description' =>  'required',
-            'status'=>  'required'
+            'status'=>  'required',
+            'bank_name'=>  'required',
+            'routing'=>  'required',
+            'account_number'=>  'required',
         ]);
         
     
@@ -294,6 +303,9 @@ class TransactionController extends Controller
                 'description' =>  $request->description,
                 'is_cheked'=>  $checked,
                 'status'=>  $request->status,
+                'bank_name'=>  $request->bank_name,
+                'routing'=>  $request->routing,
+                'account_number'=>  $request->account_number,
             ]);
 
           
