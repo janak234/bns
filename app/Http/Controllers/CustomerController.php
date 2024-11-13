@@ -339,45 +339,57 @@ class CustomerController extends Controller
         // Validations
         $data = $request->input('removed_documents');
         if($data){
-        $array_str = implode(', ', $data);
+            $array_str = implode(', ', $data);
         }
-        $request->validate([                   
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'dob' => 'required',
-            // 'company' => 'required',
-            'street_address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zipcode' => 'required',
-            'license_number' => 'required',
-            'license_expire' => 'required',
-            'license_issue' => 'required',
-            'sex' => 'required',
-            'height' => 'required',
-            'itin_number' => 'required',
-            // 'memo' => 'required',
-            'driver_name' => 'required',
-            'driver_bdate' => 'required',
-            'driver_address' => 'required',
-            'driver_issuing_authority' => 'required',
-            'birth_full_name' => 'required',
-            'birth_bdate' => 'required',
-            'birth_place_of_birth' => 'required',
-            'birth_parents_name' => 'required',
-            'birth_registration_number' => 'required',
-            'birth_issuing_authority' => 'required',
-            'passport_full_name' => 'required',
-            'passport_bdate' => 'required',
-            'passport_number' => 'required',
-            'passport_nationality' => 'required',
-            'passport_place_of_birth' => 'required',
-            'passport_issuing_authority' => 'required',
-            'passport_Issue_date' => 'required',
-            'passport_expiry_date' => 'required',
-        ]);
+        if($request->check_validation){
+            $rules = [                   
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required',
+                'dob' => 'required',
+                // 'company' => 'required',
+                'street_address' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'zipcode' => 'required',
+                'license_number' => 'required',
+                'license_expire' => 'required',
+                'license_issue' => 'required',
+                'sex' => 'required',
+                'height' => 'required',
+                'itin_number' => 'required',
+                // 'memo' => 'required',
+                'driver_name' => 'required',
+                'driver_bdate' => 'required',
+                'driver_address' => 'required',
+                'driver_issuing_authority' => 'required',
+                'birth_full_name' => 'required',
+                'birth_bdate' => 'required',
+                'birth_place_of_birth' => 'required',
+                'birth_parents_name' => 'required',
+                'birth_registration_number' => 'required',
+                'birth_issuing_authority' => 'required',
+                'passport_full_name' => 'required',
+                'passport_bdate' => 'required',
+                'passport_number' => 'required',
+                'passport_nationality' => 'required',
+                'passport_place_of_birth' => 'required',
+                'passport_issuing_authority' => 'required',
+                'passport_Issue_date' => 'required',
+                'passport_expiry_date' => 'required',
+            ];
+
+            // Create a Validator instance and check if validation fails
+            $validator = Validator::make($request->all(), $rules);
+        
+            if ($validator->fails()) {
+                return redirect('customer/edit/'.$user)->withErrors($validator)->withInput();
+            }
+        }
+
+      
+        
 
         DB::beginTransaction();
         try {
@@ -508,7 +520,7 @@ class CustomerController extends Controller
             // Commit And Redirected To Listing
             DB::commit();
             
-         if($request->name_list){
+            if($request->name_list){
              
             
             foreach($request->name_list as $key =>$com){
