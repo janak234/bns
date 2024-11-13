@@ -80,6 +80,11 @@
         <div class="form-group row">
           <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
             <label for="first_name"><span style="color:red;">*</span>First Name</label>
+            <input class="custom-control-input" type="checkbox" name="check_validation" value="true">
+            <label class="custom-control-label" for="customCheck">Check Validation</label>
+          </div>
+          <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+            <label for="first_name"><span style="color:red;">*</span>First Name</label>
             <input
               type="text"
               class="form-control form-control-user @error('first_name') is-invalid @enderror"
